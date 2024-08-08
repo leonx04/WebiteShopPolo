@@ -1,0 +1,27 @@
+.navbar-custom {
+    background-color: #343a40;
+  }
+  .navbar-custom .navbar-brand,
+  .navbar-custom .nav-link,
+  .navbar-custom .cart-icon {
+    color: #ffffff;
+  }
+  .navbar-custom .nav-link:hover {
+    color: #d4d4d4;
+  }
+  .cart-icon {
+    position: relative;
+  }
+  .cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #dc3545;
+    color: #ffffff;
+  }
+  .navbar-toggler {
+    border: none;
+  }
+  .navbar-toggler-icon {
+    background-image: url('https://img.icons8.com/ios-filled/50/000000/menu--v1.png');
+  }

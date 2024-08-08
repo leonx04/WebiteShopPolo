@@ -1,0 +1,23 @@
+
+
+.d-flex {
+    min-height: 100vh;
+    /* Đảm bảo chiều cao tối thiểu của container */
+}
+
+.sidebar {
+    height: 100vh;
+    /* Đảm bảo chiều cao của sidebar bằng chiều cao của viewport */
+    overflow-y: none;
+    /* Cung cấp cuộn nếu nội dung vượt quá chiều cao của sidebar */
+    position: fixed;
+    /* Đặt sidebar cố định để không bị cuộn theo nội dung */
+    top: 0;
+    /* Đặt sidebar ở vị trí trên cùng của trang */
+    left: 0;
+    /* Đặt sidebar ở vị trí bên trái của trang */
+    bottom: 0;
+    /* Đặt sidebar kéo dài đến đáy của trang */
+    width: auto;
+    /* Điều chỉnh chiều rộng của sidebar nếu cần */
+}

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Sidebar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/sidebar.css" />
+    <style>
+        /* sidebar.css */
+        /*html,*/
+        /*body {*/
+        /*    height: 100%;*/
+        /*    margin: 0;*/
+        /*}*/
+
+        .d-flex {
+            min-height: 100vh;
+            /* Đảm bảo chiều cao tối thiểu của container */
+        }
+
+        .sidebar {
+            height: 100vh;
+            /* Đảm bảo chiều cao của sidebar bằng chiều cao của viewport */
+            overflow-y: none;
+            /* Cung cấp cuộn nếu nội dung vượt quá chiều cao của sidebar */
+            position: fixed;
+            /* Đặt sidebar cố định để không bị cuộn theo nội dung */
+            top: 0;
+            /* Đặt sidebar ở vị trí trên cùng của trang */
+            left: 0;
+            /* Đặt sidebar ở vị trí bên trái của trang */
+            bottom: 0;
+            /* Đặt sidebar kéo dài đến đáy của trang */
+            width: auto;
+            /* Điều chỉnh chiều rộng của sidebar nếu cần */
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="d-flex" th:fragment="sidebar">
+        <div class="flex">
+            <div class="sidebar bg-card text-card-foreground p-3  shadow-lg rounded-lg">
+                <div class="alert text-center bg-secondary">
+                    <a href="/admin/index" class="text-decoration-none ">
+                        <strong class=" text-light rounded-2">Jung Nguyen</strong><span
+                            class="bg-danger p-2 rounded-2 ms-2 fw-bold text-dark">Shop</span>
+                    </a>
+                </div>
+                <div class="accordion" id="sidebarAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingRole">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseRole" aria-expanded="false" aria-controls="collapseRole">
+                                Role Management
+                            </button>
+                        </h2>
+                        <div id="collapseRole" class="accordion-collapse collapse" aria-labelledby="headingRole"
+                            data-bs-parent="#sidebarAccordion">
+                            <div class="accordion-body">
+                                <ul class="nav flex-column">
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/roles">List Roles</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/roles/create">Create New</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingAccount">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseAccount" aria-expanded="false" aria-controls="collapseAccount">
+                                Account Management
+                            </button>
+                        </h2>
+                        <div id="collapseAccount" class="accordion-collapse collapse" aria-labelledby="headingAccount"
+                            data-bs-parent="#sidebarAccordion">
+                            <div class="accordion-body">
+                                <ul class="nav flex-column">
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/accounts">List Accounts</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/accounts/create">Create New</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingCustomer">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseCustomer" aria-expanded="false"
+                                aria-controls="collapseCustomer">
+                                Customer Management
+                            </button>
+                        </h2>
+                        <div id="collapseCustomer" class="accordion-collapse collapse" aria-labelledby="headingCustomer"
+                            data-bs-parent="#sidebarAccordion">
+                            <div class="accordion-body">
+                                <ul class="nav flex-column">
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/customers">List Customers</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/customers/create">Create New</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingStaff">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseStaff" aria-expanded="false" aria-controls="collapseStaff">
+                                Staff Management
+                            </button>
+                        </h2>
+                        <div id="collapseStaff" class="accordion-collapse collapse" aria-labelledby="headingStaff"
+                            data-bs-parent="#sidebarAccordion">
+                            <div class="accordion-body">
+                                <ul class="nav flex-column">
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/staff">List Staff</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/staff/create">Create New</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOrder">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOrder" aria-expanded="false" aria-controls="collapseOrder">
+                                Order Management
+                            </button>
+                        </h2>
+                        <div id="collapseOrder" class="accordion-collapse collapse" aria-labelledby="headingOrder"
+                            data-bs-parent="#sidebarAccordion">
+                            <div class="accordion-body">
+                                <ul class="nav flex-column">
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/orders">List Orders</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/orders/create">Create New</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingPayment">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapsePayment" aria-expanded="false" aria-controls="collapsePayment">
+                                Payment Management
+                            </button>
+                        </h2>
+                        <div id="collapsePayment" class="accordion-collapse collapse" aria-labelledby="headingPayment"
+                            data-bs-parent="#sidebarAccordion">
+                            <div class="accordion-body">
+                                <ul class="nav flex-column">
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/payments">List Payments</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/payments/create">Create New</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingProduct">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseProduct" aria-expanded="false" aria-controls="collapseProduct">
+                                Product Management
+                            </button>
+                        </h2>
+                        <div id="collapseProduct" class="accordion-collapse collapse" aria-labelledby="headingProduct"
+                            data-bs-parent="#sidebarAccordion">
+                            <div class="accordion-body">
+                                <ul class="nav flex-column">
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/products">List Products</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/products/create">Create New</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingProductDetail">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseProductDetail" aria-expanded="false"
+                                aria-controls="collapseProductDetail">
+                                Product Detail Management
+                            </button>
+                        </h2>
+                        <div id="collapseProductDetail" class="accordion-collapse collapse"
+                            aria-labelledby="headingProductDetail" data-bs-parent="#sidebarAccordion">
+                            <div class="accordion-body">
+                                <ul class="nav flex-column">
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/product-details">List Product Details</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/product-details/create">Create New</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSize">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseSize" aria-expanded="false" aria-controls="collapseSize">
+                                Size Management
+                            </button>
+                        </h2>
+                        <div id="collapseSize" class="accordion-collapse collapse" aria-labelledby="headingSize"
+                            data-bs-parent="#sidebarAccordion">
+                            <div class="accordion-body">
+                                <ul class="nav flex-column">
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/sizes">List Sizes</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/sizes/create">Create New</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingCategory">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseCategory" aria-expanded="false"
+                                aria-controls="collapseCategory">
+                                Category Management
+                            </button>
+                        </h2>
+                        <div id="collapseCategory" class="accordion-collapse collapse" aria-labelledby="headingCategory"
+                            data-bs-parent="#sidebarAccordion">
+                            <div class="accordion-body">
+                                <ul class="nav flex-column">
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/categories">List Categories</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/categories/create">Create New</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingBrand">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseBrand" aria-expanded="false" aria-controls="collapseBrand">
+                                Brand Management
+                            </button>
+                        </h2>
+                        <div id="collapseBrand" class="accordion-collapse collapse" aria-labelledby="headingBrand"
+                            data-bs-parent="#sidebarAccordion">
+                            <div class="accordion-body">
+                                <ul class="nav flex-column">
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/brands">List Brands</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/brands/create">Create New</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingMaterial">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseMaterial" aria-expanded="false"
+                                aria-controls="collapseMaterial">
+                                Material Management
+                            </button>
+                        </h2>
+                        <div id="collapseMaterial" class="accordion-collapse collapse" aria-labelledby="headingMaterial"
+                            data-bs-parent="#sidebarAccordion">
+                            <div class="accordion-body">
+                                <ul class="nav flex-column">
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/materials">List Materials</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/materials/create">Create New</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingPromotion">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapsePromotion" aria-expanded="false"
+                                aria-controls="collapsePromotion">
+                                Promotion Management
+                            </button>
+                        </h2>
+                        <div id="collapsePromotion" class="accordion-collapse collapse"
+                            aria-labelledby="headingPromotion" data-bs-parent="#sidebarAccordion">
+                            <div class="accordion-body">
+                                <ul class="nav flex-column">
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/promotions">List Promotions</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/promotions/create">Create New</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingVoucher">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseVoucher" aria-expanded="false" aria-controls="collapseVoucher">
+                                Voucher Management
+                            </button>
+                        </h2>
+                        <div id="collapseVoucher" class="accordion-collapse collapse" aria-labelledby="headingVoucher"
+                            data-bs-parent="#sidebarAccordion">
+                            <div class="accordion-body">
+                                <ul class="nav flex-column">
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/vouchers">List Vouchers</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/vouchers/create">Create New</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingColor">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseColor" aria-expanded="false" aria-controls="collapseColor">
+                                Color Management
+                            </button>
+                        </h2>
+                        <div id="collapseColor" class="accordion-collapse collapse" aria-labelledby="headingColor"
+                            data-bs-parent="#sidebarAccordion">
+                            <div class="accordion-body">
+                                <ul class="nav flex-column">
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/colors">List Colors</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-muted hover:text-muted-foreground"
+                                            href="/admin/colors/create">Create New</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
