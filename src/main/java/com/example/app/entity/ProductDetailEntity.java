@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Collection;
+import java.util.Date;
 
 /**
  * @author dungn
@@ -17,12 +18,20 @@ import java.util.Collection;
 @NoArgsConstructor
 
 @Entity
-@Table(name = "ProductDetail", schema = "dbo", catalog = "ShopPoloWeb")
+@Table(name = "product_detail", schema = "dbo", catalog = "ShopPoloWeb")
 public class ProductDetailEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id", nullable = false)
     private Integer id;
+
+    @Basic
+    @Column(name = "code", nullable = true, length = 50)
+    private String code;
+
+    @Basic
+    @Column(name = "price", nullable = true)
+    private Integer price;
 
 
     @Basic
@@ -50,4 +59,8 @@ public class ProductDetailEntity {
 
     @OneToMany(mappedBy = "productDetailByProductDetailId")
     private Collection<ProductDetailPromotionEntity> productDetailPromotionsById;
+    @Column(name = "create_at", nullable = true)
+    private Date createAt;
+    @Column(name = "update_at", nullable = true)
+    private Date updateAt;
 }

@@ -6,12 +6,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * @author dungn
+ */
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "ProductDetail_Promotion", schema = "dbo", catalog = "ShopPoloWeb")
+@Table(name = "product_detail_promotion", schema = "dbo", catalog = "ShopPoloWeb")
 public class ProductDetailPromotionEntity {
     @EmbeddedId
     private ProductDetailPromotionEntityPK id;

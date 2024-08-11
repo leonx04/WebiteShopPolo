@@ -19,7 +19,7 @@ import java.util.Objects;
 @NoArgsConstructor
 
 @Entity
-@Table(name = "ProductDetail_image", schema = "dbo", catalog = "ShopPoloWeb")
+@Table(name = "product_detail_image", schema = "dbo", catalog = "ShopPoloWeb")
 public class ProductDetailImageEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
