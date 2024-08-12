@@ -1,6 +1,4 @@
 package com.example.app.config;
-
-
 import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,8 +13,8 @@ import org.thymeleaf.templatemode.TemplateMode;
 /**
  * @author dungn
  */
-@Configuration
 @EnableWebMvc
+@Configuration
 public class WebConfig implements WebMvcConfigurer {
 
     @Bean
@@ -26,8 +24,7 @@ public class WebConfig implements WebMvcConfigurer {
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode(TemplateMode.HTML);
         templateResolver.setCharacterEncoding("UTF-8");
-        // Enable caching for better performance
-        templateResolver.setCacheable(true);
+        templateResolver.setCacheable(false);
         return templateResolver;
     }
 
@@ -36,8 +33,6 @@ public class WebConfig implements WebMvcConfigurer {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver());
         templateEngine.addDialect(new LayoutDialect());
-        // Enable Spring Security dialect
-        templateEngine.addDialect(new org.thymeleaf.extras.springsecurity6.dialect.SpringSecurityDialect());
         return templateEngine;
     }
 
@@ -49,11 +44,10 @@ public class WebConfig implements WebMvcConfigurer {
         return viewResolver;
     }
 
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**")
-                .addResourceLocations("classpath:/static/")
-                .setCachePeriod(3600);
-        // Cache static resources for 1 hour
+                .addResourceLocations("classpath:/static/");
     }
 }

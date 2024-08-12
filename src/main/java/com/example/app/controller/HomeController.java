@@ -16,12 +16,13 @@ import java.util.stream.Collectors;
  * @author dungn
  */
 @Controller
+@RequestMapping("/")
 public class HomeController {
     @Autowired
     ProductRepo productRepo;
 
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String home(Model model) {
         List<ProductEntity> featuredProducts = productRepo.findAll();
 
